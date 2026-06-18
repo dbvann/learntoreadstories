@@ -1,3 +1,6 @@
+/* LearnToReadStories.com shared stylesheet
+   Sections: Base, Header/Nav, Homepage, Start Here, Reading Path, Printables, Parent Guide, Beach Cat Books, Responsive. */
+
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
@@ -42,6 +45,43 @@ p { margin: 0; }
 .logo span span { color: var(--color-orange); }
 .nav { display: flex; gap: 2.1rem; align-items: center; font-family: var(--font-heading); font-weight: 700; font-size: .92rem; }
 .nav a:hover { color: var(--color-orange); }
+.nav a.active {
+  background: rgba(242, 234, 224, .9);
+  color: var(--color-orange);
+  border-radius: 999px;
+  padding: .62rem .95rem;
+  margin: -.62rem -.95rem;
+}
+
+.nav-toggle,
+.nav-toggle-label { display: none; }
+
+.nav-toggle-label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-navy);
+  border: 1px solid rgba(184,217,232,.55);
+  border-radius: 999px;
+  padding: .55rem .8rem;
+  cursor: pointer;
+  align-items: center;
+  gap: .55rem;
+  background: rgba(253,248,242,.84);
+}
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--color-navy);
+  border-radius: 999px;
+  content: '';
+}
+.hamburger { position: relative; }
+.hamburger::before { position: absolute; top: -6px; }
+.hamburger::after { position: absolute; top: 6px; }
+
 
 /* HERO: fixed, top-aligned image like the Base44 preview.
    The image is no longer affected by the badge/headline height. */
@@ -223,13 +263,6 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
 }
 
 /* START HERE PAGE */
-.nav a.active {
-  background: rgba(242, 234, 224, .9);
-  color: var(--color-orange);
-  border-radius: 999px;
-  padding: .62rem .95rem;
-  margin: -.62rem -.95rem;
-}
 
 .start-hero {
   padding: 3rem 0 4.25rem;
@@ -1069,13 +1102,6 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
 }
 
 /* Beach Cat Books page */
-.nav a.active {
-  color: var(--color-orange);
-  background: rgba(242,234,224,.95);
-  border-radius: 999px;
-  padding: .65rem 1rem;
-  margin: -.65rem -1rem;
-}
 .books-hero {
   padding: 4.5rem 0 5rem;
   background: linear-gradient(135deg, #FDF8F2 0%, #F7F1EA 58%, #EAF4F9 100%);
@@ -1318,4 +1344,60 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
   .actual-main-book { height:auto; }
   .actual-coloring-preview { display:none; }
   .actual-cover-panel { min-height: 0; padding:.75rem; }
+}
+
+
+/* CLEANUP ADDITIONS: mobile navigation, dead-link notes, and lightweight maintenance helpers */
+.download-note,
+.book-links-note .container,
+.guide-note-section .container {
+  border-radius: 1.5rem;
+  background: rgba(253,248,242,.94);
+  border: 1px solid rgba(184,217,232,.38);
+  box-shadow: 0 8px 24px rgba(44,62,80,.06);
+  padding: 1.35rem;
+  color: rgba(44,62,80,.72);
+}
+.download-note {
+  max-width: 980px;
+  margin: 0 auto 2rem;
+  display: grid;
+  gap: .35rem;
+}
+.download-note strong,
+.book-links-note h2,
+.guide-note-section h2 { color: var(--color-navy); }
+.book-links-note,
+.guide-note-section { padding: 3.5rem 0; text-align: center; }
+.book-links-note p,
+.guide-note-section p { margin: .75rem auto 1.35rem; max-width: 650px; color: rgba(44,62,80,.68); }
+
+@media (max-width: 760px) {
+  .site-header {
+    position: sticky;
+    align-items: center;
+  }
+  .logo { font-size: 1.05rem; }
+  .nav-toggle-label { display: inline-flex; }
+  .nav {
+    display: none;
+    order: 3;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .35rem;
+    padding-top: .85rem;
+  }
+  .nav-toggle:checked ~ .nav { display: flex; }
+  .nav a,
+  .nav a.active {
+    display: block;
+    padding: .75rem .9rem;
+    margin: 0;
+    border-radius: .9rem;
+    background: rgba(253,248,242,.72);
+  }
+  .nav a.active {
+    background: rgba(232,98,42,.12);
+  }
 }
