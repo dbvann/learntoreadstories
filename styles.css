@@ -172,7 +172,7 @@ section { padding: 4rem 0; }
 .one-line { text-align:center; color:rgba(44,62,80,.72); }
 .one-line strong { color:var(--color-orange); }
 
-.level-grid { display:grid; grid-template-columns: repeat(6, 1fr); gap:1rem; }
+.level-grid { display:grid; grid-template-columns: repeat(5, 1fr); gap:1rem; }
 .level-card { background:rgba(253,248,242,.92); border:1px solid rgba(184,217,232,.45); border-radius:1.35rem; padding:1rem; text-align:center; min-height:265px; display:flex; flex-direction:column; align-items:center; transition: transform .25s ease, box-shadow .25s ease; }
 .level-card:hover { transform: translateY(-6px); box-shadow:0 12px 40px rgba(44,62,80,.12); }
 .level-icon { font-size:2.7rem; margin:.4rem 0 .7rem; }
@@ -601,7 +601,6 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
   letter-spacing: .04em;
   margin-bottom: .5rem;
 }
-.tag-0 { background:#fff3bf; color:#b77900; }
 .tag-1 { background:#ffe1cd; color:#d4521f; }
 .tag-2 { background:#dff8dd; color:#258253; }
 .tag-3 { background:#dcedff; color:#2b6fca; }
@@ -650,7 +649,6 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
   font-weight: 700;
 }
 .lessons-list li { padding-left: .12rem; }
-.level-cta-0 { background:#f59e0b; }
 .level-cta-1 { background:#E8622A; }
 .level-cta-2 { background:#10b981; }
 .level-cta-3 { background:#3b82f6; }

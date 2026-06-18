@@ -36,3 +36,5 @@ Future structure, when you are ready:
 ```
 
 For now, upload the contents of this folder to the repo root.
+
+Update: Level 0 references have been removed from the public pages. The reading path now begins with Level 1: First Words.
