@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Assessment | LearnToReadStories.com</title><link rel="stylesheet" href="styles.css"><style>
+.wizard-card{max-width:700px;margin:40px auto;padding:32px;background:#fff;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.wizard-step{display:none}.wizard-step.active{display:block}
+.wizard-option{display:block;width:100%;padding:16px;margin:12px 0;border:2px solid #ddd;border-radius:14px;background:#fff;cursor:pointer;font-size:1rem}
+.wizard-option:hover{border-color:#4f8f82}.progress{opacity:.7;margin-bottom:12px}.center{text-align:center}
+</style></head><body>
+<header class="site-header"><a class="logo" href="index.html">🐾 LearnToRead<span>Stories</span>.com</a></header>
+<main><section class="start-hero"><div class="container narrow"><h1>Find Your Child's Starting Point</h1><p>Answer four quick questions and we'll suggest a good place to begin.</p></div></section>
+<div class="wizard-card">
+<div class="wizard-step active"><div class="progress">Question 1 of 4</div><h2>Can your child recite the alphabet?</h2>
+<button class="wizard-option" onclick="next()">Not yet</button><button class="wizard-option" onclick="next()">Most of it</button><button class="wizard-option" onclick="next()">Yes, all of it</button></div>
+<div class="wizard-step"><div class="progress">Question 2 of 4</div><h2>Can your child say the sound for most letters?</h2>
+<button class="wizard-option" onclick="next()">Not really</button><button class="wizard-option" onclick="next()">A few sounds</button><button class="wizard-option" onclick="next()">Most sounds</button><button class="wizard-option" onclick="next()">Yes, confidently</button></div>
+<div class="wizard-step"><div class="progress">Question 3 of 4</div><h2>Can your child blend simple sounds into a word?</h2><p class="center">c - a - t = cat</p>
+<button class="wizard-option" onclick="next()">Not yet</button><button class="wizard-option" onclick="next()">With a lot of help</button><button class="wizard-option" onclick="next()">Sometimes</button><button class="wizard-option" onclick="next()">Yes, confidently</button></div>
+<div class="wizard-step"><div class="progress">Question 4 of 4</div><h2>Which best describes your child today?</h2>
+<button class="wizard-option" onclick="recommend(1)">Not reading words yet</button>
+<button class="wizard-option" onclick="recommend(2)">Can read simple 3-letter words</button>
+<button class="wizard-option" onclick="recommend(3)">Can read simple sentences</button>
+<button class="wizard-option" onclick="recommend(4)">Can read short paragraphs</button></div>
+<div class="wizard-step" id="results"><h2>We Suggest Starting At:</h2><h3 id="levelTitle"></h3><p>Don't worry — you can always move up or back a level as you go.</p><a id="levelBtn" class="btn btn-primary" href="#">Start Level</a></div>
+</div></main>
+<script>
+let current=0;const steps=document.querySelectorAll('.wizard-step');
+function next(){steps[current].classList.remove('active');current++;steps[current].classList.add('active');}
+function recommend(l){steps[current].classList.remove('active');document.getElementById('results').classList.add('active');
+const names={1:'Level 1: First Sounds',2:'Level 2: Simple Words',3:'Level 3: Simple Sentences',4:'Level 4: Short Paragraphs'};
+document.getElementById('levelTitle').textContent=names[l];
+document.getElementById('levelBtn').textContent='Start '+names[l];
+document.getElementById('levelBtn').href='level-'+l+'.html';
+}
+</script></body></html>
