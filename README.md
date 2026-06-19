@@ -43,3 +43,9 @@ Update: Level 0 references have been removed from the public pages. The reading 
 ## Amazon listing
 
 The Beach Cat coloring book button currently links to https://www.amazon.com/dp/B0H5V1G7XM.
+
+
+## Live book links
+- Beach Cat picture book: https://www.amazon.com/dp/B0H61JFF69
+- Beach Cat coloring book: https://www.amazon.com/dp/B0H5V1G7XM
+- Free coloring page PDF: assets/beach-cat-coloring-page.pdf
