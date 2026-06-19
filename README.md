@@ -38,3 +38,8 @@ Future structure, when you are ready:
 For now, upload the contents of this folder to the repo root.
 
 Update: Level 0 references have been removed from the public pages. The reading path now begins with Level 1: First Words.
+
+
+## Amazon listing
+
+The Beach Cat coloring book button currently links to https://www.amazon.com/dp/B0H5V1G7XM.

@@ -1345,6 +1345,31 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
 }
 
 
+
+.amazon-note {
+  max-width: 980px;
+  margin: -1.3rem auto 2.65rem;
+  padding: 1.25rem 1.35rem;
+  border-radius: 1.4rem;
+  background: linear-gradient(135deg, rgba(253,248,242,.96), rgba(255,244,232,.92));
+  border: 1px solid rgba(232,98,42,.20);
+  box-shadow: 0 8px 24px rgba(44,62,80,.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.amazon-note p {
+  color: rgba(44,62,80,.72);
+  line-height: 1.55;
+}
+.amazon-note strong { color: var(--color-navy); }
+.amazon-note .btn { padding: .72rem 1.2rem; font-size: .9rem; flex: 0 0 auto; }
+@media (max-width: 760px) {
+  .amazon-note { flex-direction: column; align-items: flex-start; }
+  .amazon-note .btn { width: 100%; }
+}
+
 /* CLEANUP ADDITIONS: mobile navigation, dead-link notes, and lightweight maintenance helpers */
 .download-note,
 .book-links-note .container,
