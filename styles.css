@@ -1624,7 +1624,7 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
   border: 1px solid rgba(232,221,208,.9);
   border-radius: 1.35rem;
   padding: 1.35rem;
-  height: calc(100% - 2.35rem);
+  height: 100%;
 }
 .tiny-story p {
   font-family: var(--font-heading);
@@ -1796,7 +1796,7 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
   text-transform: uppercase;
 }
 .words-panel .word-card-picture {
-  background: #f8fdff;
+  background: rgba(255,255,255,.94);
   border: 1.5px solid rgba(114,183,214,.42);
   box-shadow: 0 8px 20px rgba(44,62,80,.035);
 }
