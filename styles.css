@@ -1461,8 +1461,8 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
   color: var(--color-orange);
 }
 .panel-label {
-  background: rgba(184,217,232,.42);
-  color: #236987;
+  background: #fde9dc;
+  color: #24384a;
 }
 .lesson-hero h1 {
   font-size: clamp(3rem, 6vw, 5.2rem);
@@ -1482,9 +1482,9 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
   flex-wrap: wrap;
 }
 .lesson-promise span {
-  background: rgba(184,217,232,.34);
-  border: 1px solid rgba(114,183,214,.45);
-  color: #236987;
+  background: #fde9dc;
+  border: 1px solid rgba(232,98,42,.14);
+  color: #24384a;
   border-radius: 999px;
   padding: .55rem .9rem;
   font-family: var(--font-heading);
