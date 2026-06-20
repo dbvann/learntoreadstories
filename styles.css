@@ -1448,8 +1448,6 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
-  background: rgba(232, 98, 42, .12);
-  color: var(--color-orange);
   font-family: var(--font-heading);
   font-size: .78rem;
   font-weight: 700;
@@ -1457,6 +1455,14 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
   text-transform: uppercase;
   padding: .42rem .78rem;
   margin-bottom: .8rem;
+}
+.lesson-kicker {
+  background: rgba(232, 98, 42, .12);
+  color: var(--color-orange);
+}
+.panel-label {
+  background: rgba(184,217,232,.42);
+  color: #236987;
 }
 .lesson-hero h1 {
   font-size: clamp(3rem, 6vw, 5.2rem);
@@ -1476,8 +1482,9 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
   flex-wrap: wrap;
 }
 .lesson-promise span {
-  background: rgba(253,248,242,.82);
-  border: 1px solid rgba(184,217,232,.55);
+  background: rgba(184,217,232,.34);
+  border: 1px solid rgba(114,183,214,.45);
+  color: #236987;
   border-radius: 999px;
   padding: .55rem .9rem;
   font-family: var(--font-heading);
@@ -1747,8 +1754,8 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
   align-items: center;
   gap: .55rem;
   width: auto;
-  min-width: 0;
-  padding: .42rem .64rem;
+  min-width: 140px;
+  padding: .48rem .9rem;
   border-radius: 999px;
   background: rgba(255,255,255,.82);
   border: 1px solid rgba(184,217,232,.42);
@@ -1769,7 +1776,7 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
   white-space: nowrap;
 }
 .words-panel {
-  background: linear-gradient(180deg, rgba(247,252,254,.96), rgba(253,248,242,.96));
+  background: rgba(253,248,242,.94);
 }
 .word-group + .word-group {
   margin-top: 1.15rem;
@@ -1810,7 +1817,7 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
   border-style: dashed;
 }
 .celebrate-panel {
-  background: linear-gradient(135deg, rgba(247,252,254,.98), rgba(253,248,242,.98));
+  background: rgba(253,248,242,.94);
 }
 .celebrate-win {
   font-family: var(--font-heading);
