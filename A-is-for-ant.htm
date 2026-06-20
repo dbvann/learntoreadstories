@@ -68,16 +68,16 @@
 <div class="panel-label">Step 2 · Read a Few Words</div>
 <div class="word-group">
 <div class="word-card-grid" aria-label="Words to read">
-<div class="word-card word-card-picture"><div class="word-copy"><span>ant</span><small>a-n-t</small></div><img src="assets/A-is-for-ant.jpeg" alt="A friendly ant"/></div>
-<div class="word-card word-card-picture"><div class="word-copy"><span>cat</span><small>c-a-t</small></div><img src="assets/A-cat.jpeg" alt="Cat crouching playfully"/></div>
-<div class="word-card word-card-picture"><div class="word-copy"><span>sat</span><small>s-a-t</small></div><img src="assets/A-sat.jpeg" alt="Cat sitting"/></div>
-<div class="word-card word-card-picture"><div class="word-copy"><span>at</span><small>a-t</small></div><img src="assets/A-at.jpeg" alt="Cat standing at an apple"/></div>
+<div class="word-card word-card-picture" role="button" tabindex="0" aria-label="Light up the letter a in ant"><div class="word-copy"><span>ant</span><small>a-n-t</small></div><img src="assets/A-is-for-ant.jpeg" alt="A friendly ant"/></div>
+<div class="word-card word-card-picture" role="button" tabindex="0" aria-label="Light up the letter a in cat"><div class="word-copy"><span>cat</span><small>c-a-t</small></div><img src="assets/A-cat.jpeg" alt="Cat crouching playfully"/></div>
+<div class="word-card word-card-picture" role="button" tabindex="0" aria-label="Light up the letter a in sat"><div class="word-copy"><span>sat</span><small>s-a-t</small></div><img src="assets/A-sat.jpeg" alt="Cat sitting"/></div>
+<div class="word-card word-card-picture" role="button" tabindex="0" aria-label="Light up the letter a in at"><div class="word-copy"><span>at</span><small>a-t</small></div><img src="assets/A-at.jpeg" alt="Cat standing at an apple"/></div>
 </div>
 </div>
 <div class="word-group word-group-sound">
 <div class="word-card-grid" aria-label="Short a sound words">
-<div class="word-card word-card-picture word-card-sound"><div class="word-copy"><span>apple</span><small>a-p-p-l-e</small></div><img src="assets/A-apple.jpeg" alt="A red apple"/></div>
-<div class="word-card word-card-picture word-card-sound"><div class="word-copy"><span>alligator</span><small>a-l-l-i-g-a-t-o-r</small></div><img src="assets/A-alligator.jpeg" alt="A friendly alligator"/></div>
+<div class="word-card word-card-picture word-card-sound" role="button" tabindex="0" aria-label="Light up the letter a in apple"><div class="word-copy"><span>apple</span><small>a-p-p-l-e</small></div><img src="assets/A-apple.jpeg" alt="A red apple"/></div>
+<div class="word-card word-card-picture word-card-sound" role="button" tabindex="0" aria-label="Light up the letter a in alligator"><div class="word-copy"><span>alligator</span><small>a-l-l-i-g-a-t-o-r</small></div><img src="assets/A-alligator.jpeg" alt="A friendly alligator"/></div>
 </div>
 </div>
 </article>
@@ -119,5 +119,47 @@
 </section>
 </main>
 <footer class="footer">Gentle stories. Strong beginnings. Lifelong readers. 🐾</footer>
+
+<script>
+(function () {
+  const targetLetter = 'a';
+  const cards = document.querySelectorAll('.words-panel .word-card-picture');
+
+  function wrapLetter(el) {
+    const text = el.textContent;
+    const parts = text.split(new RegExp('(' + targetLetter + ')', 'gi'));
+    el.textContent = '';
+    parts.forEach(function (part) {
+      if (part.toLowerCase() === targetLetter) {
+        const mark = document.createElement('span');
+        mark.className = 'letter-light-target';
+        mark.textContent = part;
+        el.appendChild(mark);
+      } else {
+        el.appendChild(document.createTextNode(part));
+      }
+    });
+  }
+
+  cards.forEach(function (card) {
+    card.querySelectorAll('.word-copy span, .word-copy small').forEach(wrapLetter);
+
+    function activate() {
+      cards.forEach(function (otherCard) {
+        otherCard.classList.remove('letter-lit');
+      });
+      card.classList.add('letter-lit');
+    }
+
+    card.addEventListener('click', activate);
+    card.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        activate();
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
