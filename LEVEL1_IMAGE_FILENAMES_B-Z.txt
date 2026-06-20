@@ -1,0 +1,226 @@
+Expected B-Z image filenames to add to /assets:
+
+B:
+  assets/b-bat.jpeg
+  assets/b-bed.jpeg
+  assets/b-bug.jpeg
+  assets/b-ball.jpeg
+  assets/b-box.jpeg
+  assets/b-bag.jpeg
+  assets/['Cat saw a bat.', 'The bat had a ball.', 'The ball was in a box.', 'A bug sat on the bag.', 'Cat sat on the bed.', 'Bye, bat!']
+
+C:
+  assets/c-cat.jpeg
+  assets/c-cup.jpeg
+  assets/c-cap.jpeg
+  assets/c-crab.jpeg
+  assets/c-cake.jpeg
+  assets/c-cave.jpeg
+  assets/['Cat had a cup.', 'Cat had a cap.', 'A crab came by.', 'Cat saw a cake.', 'The cake was in a cave.', 'Cat can see it.']
+
+D:
+  assets/d-dog.jpeg
+  assets/d-duck.jpeg
+  assets/d-dad.jpeg
+  assets/d-den.jpeg
+  assets/d-dot.jpeg
+  assets/d-dish.jpeg
+  assets/['Cat saw a dog.', 'The dog saw a duck.', 'Dad had a dish.', 'A dot was on the dish.', 'Cat went in the den.', 'Dog did too.']
+
+E:
+  assets/e-egg.jpeg
+  assets/e-elephant.jpeg
+  assets/e-end.jpeg
+  assets/e-elf.jpeg
+  assets/e-elbow.jpeg
+  assets/e-empty.jpeg
+  assets/['Cat saw an egg.', 'An elf sat by the egg.', 'An elephant came to the end.', 'The cup was empty.', 'Cat bumped an elbow.', 'Everyone said, ‘E!’']
+
+F:
+  assets/f-fan.jpeg
+  assets/f-fish.jpeg
+  assets/f-fox.jpeg
+  assets/f-frog.jpeg
+  assets/f-feather.jpeg
+  assets/f-feet.jpeg
+  assets/['Cat saw a fish.', 'A frog sat by the fish.', 'A fox had a feather.', 'The fan went fast.', 'Cat felt it on his feet.', 'Fun for Cat!']
+
+G:
+  assets/g-goat.jpeg
+  assets/g-gum.jpeg
+  assets/g-gate.jpeg
+  assets/g-goose.jpeg
+  assets/g-gift.jpeg
+  assets/g-grass.jpeg
+  assets/['Cat saw a goat.', 'The goat stood by a gate.', 'A goose sat in the grass.', 'Cat saw a gift.', 'The gift had gum.', 'Good, said Cat.']
+
+H:
+  assets/h-hat.jpeg
+  assets/h-hen.jpeg
+  assets/h-hop.jpeg
+  assets/h-house.jpeg
+  assets/h-hill.jpeg
+  assets/h-hand.jpeg
+  assets/['Cat had a hat.', 'A hen sat by the house.', 'Cat went up the hill.', 'The hen did a hop.', 'A hand held the hat.', 'Hi, hen!']
+
+I:
+  assets/i-igloo.jpeg
+  assets/i-insect.jpeg
+  assets/i-inch.jpeg
+  assets/i-ink.jpeg
+  assets/i-ill.jpeg
+  assets/i-itch.jpeg
+  assets/['Cat saw an igloo.', 'An insect sat on it.', 'The insect moved one inch.', 'Cat saw ink.', 'Cat had an itch.', 'Cat was not ill.']
+
+J:
+  assets/j-jam.jpeg
+  assets/j-jet.jpeg
+  assets/j-jug.jpeg
+  assets/j-jump.jpeg
+  assets/j-jellyfish.jpeg
+  assets/j-jar.jpeg
+  assets/['Cat saw a jar.', 'The jar had jam.', 'A jug sat by the jar.', 'Cat saw a jet in the sky.', 'A jellyfish went jump?', 'No, said Cat!']
+
+K:
+  assets/k-kite.jpeg
+  assets/k-kid.jpeg
+  assets/k-king.jpeg
+  assets/k-key.jpeg
+  assets/k-kitten.jpeg
+  assets/k-kick.jpeg
+  assets/['Cat saw a kite.', 'A kid had the kite.', 'A kitten saw a key.', 'The king gave a kick.', 'The kite went up.', 'Kitten ran to Cat.']
+
+L:
+  assets/l-log.jpeg
+  assets/l-leaf.jpeg
+  assets/l-lamp.jpeg
+  assets/l-lion.jpeg
+  assets/l-leg.jpeg
+  assets/l-lake.jpeg
+  assets/['Cat sat on a log.', 'A leaf fell by Cat.', 'Cat saw a lamp.', 'A lion sat by the lake.', 'Cat lifted one leg.', 'Look, a leaf!']
+
+M:
+  assets/m-mat.jpeg
+  assets/m-man.jpeg
+  assets/m-moon.jpeg
+  assets/m-mouse.jpeg
+  assets/m-milk.jpeg
+  assets/m-mitt.jpeg
+  assets/['Cat sat on a mat.', 'A mouse ran by.', 'A man had milk.', 'Cat saw a mitt.', 'The moon came up.', 'Meow, said Cat.']
+
+N:
+  assets/n-net.jpeg
+  assets/n-nest.jpeg
+  assets/n-nap.jpeg
+  assets/n-nose.jpeg
+  assets/n-nut.jpeg
+  assets/n-night.jpeg
+  assets/['Cat saw a nest.', 'A nut sat in the nest.', 'Cat had a nap.', 'A net was by Cat.', 'Cat touched his nose.', 'Night came soon.']
+
+O:
+  assets/o-octopus.jpeg
+  assets/o-ox.jpeg
+  assets/o-on.jpeg
+  assets/o-off.jpeg
+  assets/o-otter.jpeg
+  assets/o-olive.jpeg
+  assets/['Cat saw an octopus.', 'An otter sat on a rock.', 'An ox came by.', 'An olive fell off.', 'Cat put it on the sand.', 'Odd, said Cat.']
+
+P:
+  assets/p-pig.jpeg
+  assets/p-pan.jpeg
+  assets/p-pot.jpeg
+  assets/p-pup.jpeg
+  assets/p-pear.jpeg
+  assets/p-pond.jpeg
+  assets/['Cat saw a pig.', 'The pig had a pan.', 'A pot sat by a pond.', 'A pup saw a pear.', 'Cat patted the sand.', 'Pop! went the pot.']
+
+Q:
+  assets/q-queen.jpeg
+  assets/q-quilt.jpeg
+  assets/q-quack.jpeg
+  assets/q-quick.jpeg
+  assets/q-quiet.jpeg
+  assets/q-quarter.jpeg
+  assets/['Cat saw a queen.', 'The queen had a quilt.', 'A duck said, quack.', 'Cat was quick.', 'Then Cat was quiet.', 'A quarter sat on the quilt.']
+
+R:
+  assets/r-rat.jpeg
+  assets/r-red.jpeg
+  assets/r-rug.jpeg
+  assets/r-run.jpeg
+  assets/r-rock.jpeg
+  assets/r-rain.jpeg
+  assets/['Cat saw a rat.', 'The rat ran by a rock.', 'A red rug sat in the rain.', 'Cat ran too.', 'The rain went drip.', 'Run, rat, run!']
+
+S:
+  assets/s-sun.jpeg
+  assets/s-sand.jpeg
+  assets/s-sock.jpeg
+  assets/s-seal.jpeg
+  assets/s-sit.jpeg
+  assets/s-shell.jpeg
+  assets/['Cat sat in the sun.', 'Cat sat on the sand.', 'A seal had a sock.', 'Cat saw a shell.', 'Cat can sit.', 'So can the seal.']
+
+T:
+  assets/t-top.jpeg
+  assets/t-ten.jpeg
+  assets/t-tent.jpeg
+  assets/t-turtle.jpeg
+  assets/t-tap.jpeg
+  assets/t-tail.jpeg
+  assets/['Cat saw a turtle.', 'The turtle had a top.', 'Cat gave a tap.', 'The top went ten times.', 'Cat saw a tent.', 'Turtle wagged a tail.']
+
+U:
+  assets/u-up.jpeg
+  assets/u-umbrella.jpeg
+  assets/u-under.jpeg
+  assets/u-uncle.jpeg
+  assets/u-bug.jpeg
+  assets/u-cup.jpeg
+  assets/['Cat looked up.', 'A bug was under a cup.', 'Uncle had an umbrella.', 'Cat went under it.', 'The cup went up.', 'Up, up, up!']
+
+V:
+  assets/v-van.jpeg
+  assets/v-vest.jpeg
+  assets/v-vine.jpeg
+  assets/v-vase.jpeg
+  assets/v-volcano.jpeg
+  assets/v-violin.jpeg
+  assets/['Cat saw a van.', 'The van had a vase.', 'A vine grew by the van.', 'Cat saw a vest.', 'A violin played softly.', 'A volcano was far away.']
+
+W:
+  assets/w-web.jpeg
+  assets/w-wig.jpeg
+  assets/w-wet.jpeg
+  assets/w-wall.jpeg
+  assets/w-wave.jpeg
+  assets/w-worm.jpeg
+  assets/['Cat saw a wave.', 'The wave made Cat wet.', 'A worm sat by a wall.', 'A web was on the wall.', 'Cat saw a wig.', 'What a wave!']
+
+X:
+  assets/x-box.jpeg
+  assets/x-fox.jpeg
+  assets/x-six.jpeg
+  assets/x-mix.jpeg
+  assets/x-wax.jpeg
+  assets/x-ox.jpeg
+  assets/['Cat saw a fox.', 'The fox had a box.', 'Six shells sat in the box.', 'Cat saw wax.', 'The fox made a mix.', 'An ox came by.']
+
+Y:
+  assets/y-yak.jpeg
+  assets/y-yarn.jpeg
+  assets/y-yes.jpeg
+  assets/y-yell.jpeg
+  assets/y-yellow.jpeg
+  assets/y-yawn.jpeg
+  assets/['Cat saw a yak.', 'The yak had yarn.', 'The yarn was yellow.', 'Cat said yes.', 'The yak gave a yell.', 'Then Cat had a yawn.']
+
+Z:
+  assets/z-zip.jpeg
+  assets/z-zoo.jpeg
+  assets/z-zebra.jpeg
+  assets/z-zero.jpeg
+  assets/z-zigzag.jpeg
+  assets/z-zipper.jpeg
+  assets/['Cat saw a zebra.', 'The zebra had a zipper.', 'Zip, zip, zip.', 'A line went zigzag.', 'Cat counted zero bugs.', 'Off to the zoo!']
