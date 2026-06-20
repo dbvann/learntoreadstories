@@ -142,7 +142,7 @@
   }
 
   cards.forEach(function (card) {
-    card.querySelectorAll('.word-copy span, .word-copy small').forEach(wrapLetter);
+    card.querySelectorAll('.word-copy > span').forEach(wrapLetter);
 
     function activate() {
       cards.forEach(function (otherCard) {

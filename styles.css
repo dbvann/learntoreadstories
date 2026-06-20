@@ -1883,10 +1883,10 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
   outline: none;
 }
 .letter-light-target {
-  display: inline-block;
+  display: inline;
   border-radius: .28em;
   padding: 0 .05em;
-  transition: background-color .16s ease, color .16s ease, box-shadow .16s ease, transform .16s ease;
+  transition: background-color .16s ease, color .16s ease, box-shadow .16s ease;
 }
 .word-card-picture.letter-lit {
   border-color: rgba(232,98,42,.55);
@@ -1895,9 +1895,11 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
   background: #ffe08a;
   color: var(--color-navy);
   box-shadow: 0 0 0 .14em rgba(255,224,138,.35);
-  transform: scale(1.03);
 }
-.word-card-picture.letter-lit .word-copy small .letter-light-target {
-  background: #fff0b8;
-  box-shadow: 0 0 0 .1em rgba(255,224,138,.28);
+
+.words-panel .word-card-picture .word-copy .letter-light-target {
+  display: inline;
+}
+.words-panel .word-card-picture .word-copy small {
+  white-space: normal;
 }
