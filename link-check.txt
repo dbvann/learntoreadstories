@@ -1,1 +1,25 @@
-No missing local links found.
+D014 Dead Link Audit — Complete
+Date: 2026-06-24
+
+Scope checked:
+- Root HTML pages
+- Level 1 A–Z lesson page links
+- Shared navigation links
+- Local href references
+- Local image/PDF asset references
+- Beach Cat Books / Printables download references
+
+Result:
+- No broken internal page links found in the Level 1 flow.
+- level-1.html links to all A–Z lesson files.
+- Shared navigation pages resolve locally.
+- Download/PDF references resolve locally.
+- GitHub spot-check confirmed later alphabet assets are present upstream, including O, P, and Z lesson images.
+
+Notes:
+- The local uploaded ZIP used for the first parser pass appeared older than the current GitHub repo for some O–Z assets. GitHub was treated as the source of truth.
+- External Amazon links are intentionally retained:
+  - https://www.amazon.com/dp/B0H61JFF69
+  - https://www.amazon.com/dp/B0H5V1G7XM
+
+Status: Complete
