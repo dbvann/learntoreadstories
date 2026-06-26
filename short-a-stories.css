@@ -1,0 +1,16 @@
+.short-a-story-grid {
+  grid-template-columns: repeat(4, minmax(210px, 240px));
+  justify-content: center;
+}
+
+@media (max-width: 1100px) {
+  .short-a-story-grid {
+    grid-template-columns: repeat(2, minmax(220px, 280px));
+  }
+}
+
+@media (max-width: 620px) {
+  .short-a-story-grid {
+    grid-template-columns: 1fr;
+  }
+}
