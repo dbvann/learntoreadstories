@@ -1,0 +1,24 @@
+.level-3-grid {
+  grid-template-columns: repeat(4, minmax(210px, 1fr));
+}
+
+.level-3-grid .level-card h3 {
+  font-size: 1.15rem;
+}
+
+.level-3-grid .level-card h3 span {
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1050px) {
+  .level-3-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .level-3-grid {
+    grid-template-columns: 1fr;
+  }
+}
