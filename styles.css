@@ -1870,3 +1870,22 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
   }
 }
 
+
+/* Homepage parent-help three-card layout */
+#parent-help .level-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 760px) {
+  #parent-help .level-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 440px) {
+  #parent-help .level-grid {
+    grid-template-columns: 1fr;
+  }
+}
