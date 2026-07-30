@@ -1,0 +1,62 @@
+name: Standardize Article Link Style
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/standardize-article-link-style.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add shared Parent Guide article link styling
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('styles.css')
+          css = path.read_text(encoding='utf-8')
+          marker = '/* Shared Parent Guide article links */'
+          rule = '''
+
+/* Shared Parent Guide article links */
+.article-card-full p a:not(.btn),
+.article-card-full li a:not(.btn),
+.article-card-full .seo-related a:not(.btn) {
+  color: var(--color-orange);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color .18s ease, text-decoration-color .18s ease;
+}
+
+.article-card-full p a:not(.btn):hover,
+.article-card-full li a:not(.btn):hover,
+.article-card-full .seo-related a:not(.btn):hover {
+  color: #d4521f;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+'''
+          if marker not in css:
+              path.write_text(css.rstrip() + rule + '\n', encoding='utf-8')
+          PY
+
+      - name: Commit shared article link style
+        run: |
+          if git diff --quiet; then
+            echo "No changes needed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add styles.css
+          git commit -m "Standardize Parent Guide article links"
+          git push
