@@ -60,3 +60,5 @@ jobs:
           git add styles.css
           git commit -m "Standardize Parent Guide article links"
           git push
+
+# Triggered after clarifying the style should apply to every Parent Guide article.
