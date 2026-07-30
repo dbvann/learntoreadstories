@@ -1889,3 +1889,7 @@ input, select { width:100%; border:1px solid rgba(44,62,80,.18); background:whit
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Contextual article links */
+.article-card-full p a, .seo-related a { color: var(--color-orange); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; font-weight: 600; }
