@@ -1,0 +1,57 @@
+name: Reposition Featured Articles
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/reposition-featured-articles.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-homepage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Move and rename homepage article section
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('index.html')
+          html = path.read_text(encoding='utf-8')
+
+          start = html.index('<section class="cards bg-cream" id="parent-help">')
+          end = html.index('</section>', start) + len('</section>')
+          section = html[start:end]
+          html = html[:start] + html[end:]
+
+          section = section.replace(
+              '<h2>Help Your Child Learn to Read</h2>',
+              '<h2>Featured Articles from the Parent Guide</h2>'
+          ).replace(
+              '<p>New to phonics and early reading? Start with a simple explanation, learn why letter sounds matter, or go directly to the step-by-step Reading Path.</p>',
+              '<p>Helpful, plain-language articles for parents, plus a direct path to the lessons when you are ready to begin.</p>'
+          )
+
+          stories_start = html.index('<section class="cards section-sand" id="stories">')
+          stories_end = html.index('</section>', stories_start) + len('</section>')
+          html = html[:stories_end] + '\n' + section + html[stories_end:]
+
+          path.write_text(html, encoding='utf-8')
+          PY
+
+      - name: Commit homepage layout update
+        run: |
+          if git diff --quiet; then
+            echo "No changes needed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Move featured parent articles below homepage story cards"
+          git push
