@@ -61,3 +61,5 @@ jobs:
           git add styles.css
           git commit -m "Center homepage parent help cards"
           git push
+
+# Updated to trigger the one-time centering run.
