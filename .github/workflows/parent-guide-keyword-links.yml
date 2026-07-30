@@ -16,134 +16,53 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Add keyword-informed internal links and phonics article
+      - name: Add keyword-informed internal links
         run: |
           python - <<'PY'
           from pathlib import Path
 
           related = {
-            'how-children-learn-to-read.html': (
-              'A useful next step is learning how <a href="what-are-letter-sounds.html">letter sounds</a> connect print to speech, then using <a href="what-are-decodable-stories.html">decodable stories</a> for real reading practice. Parents who want a simple routine can also learn how to practice <a href="how-to-teach-phonics-at-home.html">phonics at home</a>.'
-            ),
-            'what-are-letter-sounds.html': (
-              'Once the first sounds feel familiar, see how they fit into the larger process of <a href="how-children-learn-to-read.html">learning to read</a>. You can then practice them through <a href="what-are-decodable-stories.html">decodable stories</a> or follow the simple guide to <a href="how-to-teach-phonics-at-home.html">phonics at home</a>.'
-            ),
-            'what-are-sight-words.html': (
-              'Sight-word practice works best beside strong <a href="what-are-letter-sounds.html">letter sounds</a> and short <a href="what-are-decodable-stories.html">decodable stories</a>. When a child starts <a href="what-to-do-when-your-child-guesses-words.html">guessing words</a>, calmly return attention to the letters on the page.'
-            ),
-            'what-are-decodable-stories.html': (
-              'Good decodable text combines familiar <a href="what-are-letter-sounds.html">letter sounds</a> with only a few necessary <a href="what-are-sight-words.html">sight words</a>. It also helps prevent the habit of <a href="what-to-do-when-your-child-guesses-words.html">guessing words</a> from pictures or context.'
-            ),
-            'what-to-do-when-your-child-guesses-words.html': (
-              'Word guessing usually improves when practice returns to clear <a href="what-are-letter-sounds.html">letter sounds</a> and carefully matched <a href="what-are-decodable-stories.html">decodable stories</a>. These <a href="how-to-help-without-giving-the-answer.html">calm reading prompts</a> can help without turning the moment into a test.'
-            ),
-            'how-long-should-reading-practice-take.html': (
-              'Short, consistent <a href="how-to-teach-phonics-at-home.html">phonics at home</a> is usually easier to sustain than occasional long sessions. The same gentle rhythm is built into the <a href="how-to-use-beach-cat-lessons.html">Beach Cat lessons</a>, with guidance for when to seek <a href="when-to-ask-a-teacher-for-help.html">teacher help</a>.'
-            ),
-            'how-to-help-without-giving-the-answer.html': (
-              'The best prompts direct a child back to <a href="what-are-letter-sounds.html">letter sounds</a> instead of supplying the word. They are especially useful when a child is <a href="what-to-do-when-your-child-guesses-words.html">guessing words</a> or when you are deciding whether to ask for <a href="when-to-ask-a-teacher-for-help.html">teacher help</a>.'
-            ),
-            'when-to-ask-a-teacher-for-help.html': (
-              'Before the conversation, note what happens during short <a href="how-long-should-reading-practice-take.html">reading practice</a>: whether your child remembers <a href="what-are-letter-sounds.html">letter sounds</a>, blends them, or keeps <a href="what-to-do-when-your-child-guesses-words.html">guessing words</a>. Specific examples help the teacher understand the pattern.'
-            ),
-            'how-to-use-beach-cat-lessons.html': (
-              'The lessons are designed as simple <a href="how-to-teach-phonics-at-home.html">phonics at home</a>: one sound, a few words, and a short <a href="what-are-decodable-stories.html">decodable story</a>. Use the <a href="reading-path.html">Reading Path</a> to choose the right starting level.'
-            ),
+            'how-children-learn-to-read.html': 'A useful next step is learning how <a href="what-are-letter-sounds.html">letter sounds</a> connect print to speech, then using <a href="what-are-decodable-stories.html">decodable stories</a> for real reading practice. Parents who want a simple routine can also learn how to practice <a href="how-to-teach-phonics-at-home.html">phonics at home</a>.',
+            'what-are-letter-sounds.html': 'Once the first sounds feel familiar, see how they fit into the larger process of <a href="how-children-learn-to-read.html">learning to read</a>. You can then practice them through <a href="what-are-decodable-stories.html">decodable stories</a> or follow the simple guide to <a href="how-to-teach-phonics-at-home.html">phonics at home</a>.',
+            'what-are-sight-words.html': 'Sight-word practice works best beside strong <a href="what-are-letter-sounds.html">letter sounds</a> and short <a href="what-are-decodable-stories.html">decodable stories</a>. When a child starts <a href="what-to-do-when-your-child-guesses-words.html">guessing words</a>, calmly return attention to the letters on the page.',
+            'what-are-decodable-stories.html': 'Good decodable text combines familiar <a href="what-are-letter-sounds.html">letter sounds</a> with only a few necessary <a href="what-are-sight-words.html">sight words</a>. It also helps prevent the habit of <a href="what-to-do-when-your-child-guesses-words.html">guessing words</a> from pictures or context.',
+            'what-to-do-when-your-child-guesses-words.html': 'Word guessing usually improves when practice returns to clear <a href="what-are-letter-sounds.html">letter sounds</a> and carefully matched <a href="what-are-decodable-stories.html">decodable stories</a>. These <a href="how-to-help-without-giving-the-answer.html">calm reading prompts</a> can help without turning the moment into a test.',
+            'how-long-should-reading-practice-take.html': 'Short, consistent <a href="how-to-teach-phonics-at-home.html">phonics at home</a> is usually easier to sustain than occasional long sessions. The same gentle rhythm is built into the <a href="how-to-use-beach-cat-lessons.html">Beach Cat lessons</a>, with guidance for when to seek <a href="when-to-ask-a-teacher-for-help.html">teacher help</a>.',
+            'how-to-help-without-giving-the-answer.html': 'The best prompts direct a child back to <a href="what-are-letter-sounds.html">letter sounds</a> instead of supplying the word. They are especially useful when a child is <a href="what-to-do-when-your-child-guesses-words.html">guessing words</a> or when you are deciding whether to ask for <a href="when-to-ask-a-teacher-for-help.html">teacher help</a>.',
+            'when-to-ask-a-teacher-for-help.html': 'Before the conversation, note what happens during short <a href="how-long-should-reading-practice-take.html">reading practice</a>: whether your child remembers <a href="what-are-letter-sounds.html">letter sounds</a>, blends them, or keeps <a href="what-to-do-when-your-child-guesses-words.html">guessing words</a>. Specific examples help the teacher understand the pattern.',
+            'how-to-use-beach-cat-lessons.html': 'The lessons are designed as simple <a href="how-to-teach-phonics-at-home.html">phonics at home</a>: one sound, a few words, and a short <a href="what-are-decodable-stories.html">decodable story</a>. Use the <a href="reading-path.html">Reading Path</a> to choose the right starting level.'
           }
 
           marker = '<div class="article-next">'
-          start_marker = '<!-- keyword-related-reading -->'
+          comment = '<!-- keyword-related-reading -->'
+
           for filename, paragraph in related.items():
             path = Path(filename)
             if not path.exists():
               raise SystemExit(f'Missing expected article: {filename}')
             html = path.read_text(encoding='utf-8')
-            if start_marker in html:
+            if comment in html:
               continue
-            block = f'''<div class="article-callout seo-related" {start_marker[1:-1]}><strong>Related reading:</strong> {paragraph}</div>\n'''
             if marker not in html:
               raise SystemExit(f'Missing article-next marker in {filename}')
-            html = html.replace(marker, block + marker, 1)
-            path.write_text(html, encoding='utf-8')
-
-          new_article = Path('how-to-teach-phonics-at-home.html')
-          if not new_article.exists():
-            new_article.write_text('''<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>How to Teach Phonics at Home | Parent Guide | LearnToReadStories.com</title>
-<meta name="description" content="A simple parent guide to teaching phonics at home with letter sounds, blending, short words, decodable stories, and ten-minute practice."/>
-<link href="styles.css" rel="stylesheet"/>
-<link href="https://learntoreadstories.com/how-to-teach-phonics-at-home.html" rel="canonical"/>
-<meta property="og:type" content="article"/>
-<meta property="og:title" content="How to Teach Phonics at Home | LearnToReadStories.com"/>
-<meta property="og:description" content="A gentle step-by-step phonics routine parents can use at home."/>
-<meta property="og:url" content="https://learntoreadstories.com/how-to-teach-phonics-at-home.html"/>
-<meta property="og:image" content="https://learntoreadstories.com/assets/beach-cat-hero.png"/>
-<style>
-.article-hero { background: linear-gradient(135deg, #FDF8F2 0%, #F2EAE0 62%, #EAF4F9 100%); padding: 4.5rem 0 3.5rem; }
-.article-hero .breadcrumb { margin-bottom: 1.25rem; color: rgba(44,62,80,.65); font-size: .95rem; }
-.article-hero h1 { font-size: clamp(2.5rem, 5vw, 4.25rem); margin-bottom: 1rem; letter-spacing: -.04em; }
-.article-hero p { color: rgba(44,62,80,.72); font-size: 1.15rem; max-width: 760px; }
-.article-body { background: var(--color-sand); padding: 4rem 0; }
-.article-card-full { background: rgba(253,248,242,.96); border: 1px solid rgba(184,217,232,.45); border-radius: 2rem; padding: clamp(1.5rem, 4vw, 3rem); box-shadow: 0 12px 40px rgba(44,62,80,.08); }
-.article-card-full h2 { margin-top: 2.25rem; margin-bottom: .8rem; font-size: clamp(1.55rem, 3vw, 2.05rem); }
-.article-card-full h2:first-child { margin-top: 0; }
-.article-card-full p { margin-bottom: 1rem; color: rgba(44,62,80,.78); }
-.article-card-full ul { margin: .5rem 0 1.4rem; padding-left: 1.35rem; color: rgba(44,62,80,.78); }
-.article-card-full li { margin-bottom: .45rem; }
-.article-callout { margin: 2rem 0; padding: 1.35rem; border-radius: 1.25rem; background: rgba(184,217,232,.28); border: 1px solid rgba(184,217,232,.55); }
-.article-callout strong { color: var(--color-orange); }
-.article-script { background:#fff; border-left: 6px solid var(--color-orange); border-radius: 1rem; padding: 1rem 1.25rem; margin: 1.25rem 0 1.75rem; }
-.article-next { display:flex; flex-wrap:wrap; gap:1rem; margin-top:2rem; }
-</style>
-</head>
-<body>
-<header class="site-header"><a aria-label="LearnToReadStories.com home" class="logo" href="index.html"><span aria-hidden="true" class="paw">🐾</span><span>LearnToRead<span>Stories</span>.com</span></a><input aria-hidden="true" class="nav-toggle" id="nav-toggle" type="checkbox"/><label aria-label="Open navigation menu" class="nav-toggle-label" for="nav-toggle"><span class="nav-toggle-text">Menu</span><span aria-hidden="true" class="hamburger"></span></label><nav aria-label="Main navigation" class="nav"><a href="start-here.html">Start Here</a><a href="reading-path.html">Reading Path</a><a href="printables.html">Printables</a><a class="active" href="parent-guide.html">Parent Guide</a><a href="beach-cat-books.html">Beach Cat Books</a></nav></header>
-<main>
-<section class="article-hero"><div class="container narrow"><div class="breadcrumb"><a href="index.html">Home</a> › <a href="parent-guide.html">Parent Guide</a> › How to Teach Phonics at Home</div><h1>How to Teach Phonics at Home</h1><p>You do not need a classroom or a complicated curriculum. Start with one letter sound, blend a few short words, read one tiny story, and stop while your child still feels successful.</p></div></section>
-<section class="article-body"><div class="container narrow"><article class="article-card-full">
-<h2>Start with sounds, not a long alphabet test</h2>
-<p>Phonics teaches children how written letters connect to spoken sounds. A child uses those connections to work out unfamiliar words instead of memorizing every word or guessing from a picture.</p>
-<p>Begin with a few useful <a href="what-are-letter-sounds.html">letter sounds</a>. You do not need to wait until your child knows all 26 letters before reading simple words.</p>
-<div class="article-callout"><strong>Keep it small:</strong> One new sound and two familiar sounds are enough for a short lesson.</div>
-<h2>Teach the sound clearly</h2>
-<p>Show the letter, say its sound, and connect it to a word your child knows. Keep consonant sounds short when possible. Say /m/ rather than “muh,” because extra sounds make blending harder.</p>
-<div class="article-script"><p>“This is M. M says /m/. Map starts with /m/.”</p></div>
-<h2>Blend sounds into short words</h2>
-<p>Once your child knows a few sounds, slide them together slowly. For example, /m/ /a/ /p/ becomes <strong>map</strong>. This step turns phonics knowledge into actual reading.</p>
-<p>If blending is difficult, stretch the first two sounds together—“mmmaa”—then add the final sound. Do not rush. Smooth blending grows with repetition.</p>
-<h2>Use words that match the lesson</h2>
-<p>Choose three to six words built from sounds your child has already learned. Early CVC words such as <strong>cat</strong>, <strong>map</strong>, <strong>sit</strong>, and <strong>sun</strong> work well because each sound can be heard.</p>
-<p>Avoid asking the child to read pages filled with patterns they have not been taught. Carefully matched <a href="what-are-decodable-stories.html">decodable stories</a> let children practice the skill instead of relying on guesses.</p>
-<h2>Add only a few sight words</h2>
-<p>Simple stories sometimes need common words such as <strong>the</strong>, <strong>is</strong>, or <strong>was</strong>. Introduce only the words needed for that story and point out the regular and tricky parts. Our guide to <a href="what-are-sight-words.html">sight words</a> explains how to do this without turning reading into flashcard memorization.</p>
-<h2>Use a ten-minute routine</h2>
-<ul><li>Review one sound.</li><li>Read three to six words.</li><li>Read one tiny story.</li><li>Reread one favorite line.</li><li>Celebrate and stop.</li></ul>
-<p>Consistency matters more than length. The guide to <a href="how-long-should-reading-practice-take.html">reading practice</a> explains why a calm ten minutes can be more productive than a long, tired session.</p>
-<h2>Help without taking over</h2>
-<p>When your child pauses, wait for a moment. Then point to the word and ask for the first sound or a known part. Avoid immediately giving the answer, but do give the word calmly if the struggle is becoming frustrating.</p>
-<p>Use these <a href="how-to-help-without-giving-the-answer.html">calm reading prompts</a> and watch for repeated <a href="what-to-do-when-your-child-guesses-words.html">word guessing</a> from pictures or context.</p>
-<h2>Know when to ask for support</h2>
-<p>Children progress at different rates, but persistent difficulty remembering sounds, blending simple words, or reading after consistent practice is worth discussing with the teacher. Asking for <a href="when-to-ask-a-teacher-for-help.html">teacher help</a> early is a practical step, not a failure.</p>
-<div class="article-callout"><strong>The big idea:</strong> Home phonics should feel clear, short, and repeatable: one sound, a few words, one tiny story.</div>
-<div class="article-next"><a class="btn btn-primary" href="reading-path.html">Browse the Reading Path →</a><a class="btn btn-secondary" href="parent-guide.html">Back to Parent Guide</a></div>
-</article></div></section>
-</main>
-<footer class="footer">Gentle stories. Strong beginnings. Lifelong readers. 🐾 · <a href="beach-cat-books.html">Beach Cat Books</a></footer>
-</body>
-</html>''', encoding='utf-8')
+            block = f'{comment}\n<div class="article-callout seo-related"><strong>Related reading:</strong> {paragraph}</div>\n'
+            path.write_text(html.replace(marker, block + marker, 1), encoding='utf-8')
 
           guide = Path('parent-guide.html')
           guide_html = guide.read_text(encoding='utf-8')
-          new_card_marker = 'guide-how-to-teach-phonics-at-home'
-          if new_card_marker not in guide_html:
-            insertion = '''\n<a class="article-card" href="how-to-teach-phonics-at-home.html" id="guide-how-to-teach-phonics-at-home"><div class="article-icon">🏠</div><h3>How to Teach Phonics at Home</h3><p>A simple ten-minute routine using letter sounds, blending, short words, and tiny stories.</p><span class="read-link">Read guide →</span></a>'''
+          if 'guide-how-to-teach-phonics-at-home' not in guide_html:
+            card = '\n<a class="article-card" href="how-to-teach-phonics-at-home.html" id="guide-how-to-teach-phonics-at-home"><div class="article-icon">🏠</div><h3>How to Teach Phonics at Home</h3><p>A simple ten-minute routine using letter sounds, blending, short words, and tiny stories.</p><span class="read-link">Read guide →</span></a>\n'
             target = '<a class="article-card" href="what-are-letter-sounds.html"'
-            guide_html = guide_html.replace(target, insertion + '\n' + target, 1)
-            guide.write_text(guide_html, encoding='utf-8')
+            if target not in guide_html:
+              raise SystemExit('Could not find Parent Guide insertion point')
+            guide.write_text(guide_html.replace(target, card + target, 1), encoding='utf-8')
+
+          css = Path('styles.css')
+          css_text = css.read_text(encoding='utf-8')
+          css_marker = '/* Contextual article links */'
+          if css_marker not in css_text:
+            css_text += '\n\n/* Contextual article links */\n.article-card-full p a, .seo-related a { color: var(--color-orange); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; font-weight: 600; }\n'
+            css.write_text(css_text, encoding='utf-8')
           PY
 
       - name: Commit SEO article links
@@ -154,6 +73,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add parent-guide.html *.html sitemap.xml
+          git add parent-guide.html styles.css *.html
           git commit -m "Add keyword-informed parent article links"
           git push
