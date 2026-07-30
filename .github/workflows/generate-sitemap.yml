@@ -1,0 +1,69 @@
+name: Generate sitemap
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - '**/*.htm'
+      - '.github/workflows/generate-sitemap.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Generate sitemap from public HTML files
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from urllib.parse import quote
+
+          base_url = "https://learntoreadstories.com/"
+          excluded_names = {"404.html"}
+          excluded_parts = {".git", ".github", "node_modules"}
+
+          pages = []
+          for path in Path(".").rglob("*"):
+              if not path.is_file() or path.suffix.lower() not in {".html", ".htm"}:
+                  continue
+              if path.name in excluded_names or any(part in excluded_parts for part in path.parts):
+                  continue
+              relative = path.as_posix().removeprefix("./")
+              pages.append(relative)
+
+          pages = sorted(set(pages), key=lambda value: (value.lower() != "index.html", value.lower()))
+
+          lines = [
+              '<?xml version="1.0" encoding="UTF-8"?>',
+              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+          ]
+
+          for page in pages:
+              location = base_url if page.lower() == "index.html" else base_url + quote(page, safe="/-._~")
+              lines.extend(["  <url>", f"    <loc>{location}</loc>", "  </url>"])
+
+          lines.append("</urlset>")
+          Path("sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
+          print(f"Generated sitemap with {len(pages)} pages")
+          PY
+
+      - name: Commit sitemap when changed
+        shell: bash
+        run: |
+          if git diff --quiet -- sitemap.xml; then
+            echo "Sitemap is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git commit -m "Automatically update sitemap"
+          git push
