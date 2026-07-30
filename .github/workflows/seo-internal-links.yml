@@ -1,0 +1,169 @@
+name: Apply SEO internal links
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/seo-internal-links.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-seo-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add homepage and article links
+        run: |
+          python <<'PY'
+          from pathlib import Path
+          from urllib.parse import quote
+
+          root = Path('.')
+
+          # 1. Homepage: add three-card parent-help section.
+          path = root / 'index.html'
+          text = path.read_text(encoding='utf-8')
+          marker = '</section>\n<section class="levels bg-cream" id="reading-path">'
+          section = '''</section>
+          <section class="cards bg-cream" id="parent-help">
+          <div class="container">
+          <div class="section-title compact">
+          <h2>Help Your Child Learn to Read</h2>
+          <p>New to phonics and early reading? Start with a simple explanation, learn why letter sounds matter, or go directly to the step-by-step Reading Path.</p>
+          </div>
+          <div class="level-grid">
+          <article class="level-card orange"><div class="level-icon">🌱</div><h3>How Children Learn to Read</h3><p>See how children move from hearing sounds to reading words, sentences, and stories.</p><a href="how-children-learn-to-read.html">See How Reading Develops →</a></article>
+          <article class="level-card blue"><div class="level-icon">👂</div><h3>What Are Letter Sounds?</h3><p>Learn why sounds come before words and how to practice them gently at home.</p><a href="what-are-letter-sounds.html">Learn About Letter Sounds →</a></article>
+          <article class="level-card green"><div class="level-icon">🧭</div><h3>Follow the Reading Path</h3><p>Choose the level that fits your child and begin with one short lesson at a time.</p><a href="reading-path.html">Explore the Reading Path →</a></article>
+          </div>
+          </div>
+          </section>
+          <section class="levels bg-cream" id="reading-path">'''
+          if 'id="parent-help"' not in text:
+              if marker not in text:
+                  raise RuntimeError('Homepage insertion marker not found')
+              text = text.replace(marker, section, 1)
+              path.write_text(text, encoding='utf-8')
+
+          # 2. How Children Learn to Read: contextual and next-step links.
+          path = root / 'how-children-learn-to-read.html'
+          text = path.read_text(encoding='utf-8')
+          paragraph = '<p>At first, this can feel like a lot. Children are learning two things at once: the shape of a letter and the sound that letter can represent. That is why a small routine works well. One sound at a time is kinder than trying to teach everything at once.</p>'
+          added = paragraph + '\n<p>For a closer look at this first step, read <a href="what-are-letter-sounds.html">how letter sounds work</a> and how to practice them without pressure.</p>'
+          if 'how letter sounds work</a>' not in text:
+              if paragraph not in text:
+                  raise RuntimeError('How-children contextual marker not found')
+              text = text.replace(paragraph, added, 1)
+
+          old_next = '''<div class="article-next">
+          <a class="btn btn-primary" href="start-here.html">Find My Child’s Level →</a>
+          <a class="btn btn-secondary" href="parent-guide.html">Back to Parent Guide</a>
+          </div>'''
+          new_next = '''<div class="article-callout"><strong>Ready to begin?</strong> Once your child is noticing letter sounds, use the Reading Path to choose a gentle starting level.</div>
+          <div class="article-next">
+          <a class="btn btn-primary" href="reading-path.html">Explore the Reading Path →</a>
+          <a class="btn btn-secondary" href="what-are-letter-sounds.html">Learn About Letter Sounds</a>
+          <a class="btn btn-secondary" href="parent-guide.html">Back to Parent Guide</a>
+          </div>'''
+          if '<strong>Ready to begin?</strong>' not in text:
+              if old_next not in text:
+                  raise RuntimeError('How-children next-step marker not found')
+              text = text.replace(old_next, new_next, 1)
+          path.write_text(text, encoding='utf-8')
+
+          # 3. What Are Letter Sounds: overview, Level 1, and Reading Path links.
+          path = root / 'what-are-letter-sounds.html'
+          text = path.read_text(encoding='utf-8')
+          paragraph = '<p>That difference matters. A child may know the alphabet song and still need practice hearing the sounds inside words. Letter names help children identify symbols. Letter sounds help children read.</p>'
+          added = paragraph + '\n<p>Letter sounds are one part of a larger process that includes blending, recognizing words, reading sentences, and building confidence. See the full guide to <a href="how-children-learn-to-read.html">how children learn to read</a>.</p>'
+          if 'one part of a larger process' not in text:
+              if paragraph not in text:
+                  raise RuntimeError('Letter-sounds overview marker not found')
+              text = text.replace(paragraph, added, 1)
+
+          old_next = '''<div class="article-next">
+          <a class="btn btn-primary" href="reading-path.html">Browse the Reading Path →</a>
+          <a class="btn btn-secondary" href="parent-guide.html">Back to Parent Guide</a>
+          </div>'''
+          new_next = '''<div class="article-callout"><strong>Practice in a real lesson:</strong> Your child does not need to memorize every sound before beginning. Start with one Level 1 lesson and practice one sound at a time.</div>
+          <div class="article-next">
+          <a class="btn btn-primary" href="level-1.html">Start Level 1 →</a>
+          <a class="btn btn-secondary" href="reading-path.html">View the Full Reading Path</a>
+          <a class="btn btn-secondary" href="how-children-learn-to-read.html">How Children Learn to Read</a>
+          <a class="btn btn-secondary" href="parent-guide.html">Back to Parent Guide</a>
+          </div>'''
+          if '<strong>Practice in a real lesson:</strong>' not in text:
+              if old_next not in text:
+                  raise RuntimeError('Letter-sounds next-step marker not found')
+              text = text.replace(old_next, new_next, 1)
+          path.write_text(text, encoding='utf-8')
+
+          # 4. Reading Path: links back to both parent articles.
+          path = root / 'reading-path.html'
+          text = path.read_text(encoding='utf-8')
+          paragraph = '<p>Each level builds on the one before it. Start with First Words, then move forward when the stories feel easy.</p>'
+          added = paragraph + '\n<p>Curious about why the levels are arranged this way? Read <a href="how-children-learn-to-read.html">how children learn to read</a>.</p>'
+          if 'Curious about why the levels are arranged this way?' not in text:
+              if paragraph not in text:
+                  raise RuntimeError('Reading Path overview marker not found')
+              text = text.replace(paragraph, added, 1)
+
+          marker = '<li>Simple CVC words</li>\n</ul>'
+          added = marker + '\n<p>New to phonics? Read our guide to <a href="what-are-letter-sounds.html">letter sounds</a> before beginning.</p>'
+          if 'New to phonics? Read our guide' not in text:
+              if marker not in text:
+                  raise RuntimeError('Reading Path Level 1 marker not found')
+              text = text.replace(marker, added, 1)
+          path.write_text(text, encoding='utf-8')
+
+          # 5. Confirm exact filenames and targets exist.
+          required = {
+              'how-children-learn-to-read.html',
+              'what-are-letter-sounds.html',
+              'reading-path.html',
+              'level-1.html',
+          }
+          missing = [name for name in required if not (root / name).is_file()]
+          if missing:
+              raise RuntimeError(f'Missing linked files: {missing}')
+
+          # 6. Regenerate sitemap from every public HTML/HTM file.
+          excluded = {'404.html'}
+          pages = []
+          for file in root.rglob('*'):
+              if not file.is_file() or file.suffix.lower() not in {'.html', '.htm'}:
+                  continue
+              rel = file.as_posix().lstrip('./')
+              if rel.startswith('.git/') or rel.startswith('.github/') or Path(rel).name in excluded:
+                  continue
+              pages.append(rel)
+
+          pages = sorted(set(pages), key=lambda p: (p != 'index.html', p.lower()))
+          urls = []
+          for rel in pages:
+              if rel == 'index.html':
+                  url = 'https://learntoreadstories.com/'
+              else:
+                  url = 'https://learntoreadstories.com/' + quote(rel, safe='/.-_~')
+              urls.append(f'  <url>\n    <loc>{url}</loc>\n  </url>')
+
+          sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + '\n'.join(urls) + '\n</urlset>\n'
+          (root / 'sitemap.xml').write_text(sitemap, encoding='utf-8')
+          print(f'Generated sitemap with {len(urls)} URLs')
+          PY
+
+      - name: Commit updated pages and sitemap
+        run: |
+          if git diff --quiet; then
+            echo "No changes needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html how-children-learn-to-read.html what-are-letter-sounds.html reading-path.html sitemap.xml
+          git commit -m "Add parent-help SEO links and refresh sitemap"
+          git push
