@@ -1,0 +1,63 @@
+name: Center Parent Help Cards
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/center-parent-help.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  center-cards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add centered parent-help grid styles
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('styles.css')
+          css = path.read_text(encoding='utf-8')
+          marker = '/* Homepage parent-help three-card layout */'
+          rule = '''
+
+/* Homepage parent-help three-card layout */
+#parent-help .level-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 760px) {
+  #parent-help .level-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 440px) {
+  #parent-help .level-grid {
+    grid-template-columns: 1fr;
+  }
+}
+'''
+          if marker not in css:
+              path.write_text(css.rstrip() + rule + '\n', encoding='utf-8')
+          PY
+
+      - name: Commit style fix
+        run: |
+          if git diff --quiet; then
+            echo "No changes needed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add styles.css
+          git commit -m "Center homepage parent help cards"
+          git push
