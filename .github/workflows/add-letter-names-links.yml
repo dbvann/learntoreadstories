@@ -1,0 +1,30 @@
+name: One-time letter names article linking
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/add-letter-names-links.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Add article discovery links
+        run: python scripts/add_letter_names_links.py
+
+      - name: Commit article links
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Connect letter names guide to Parent Guide and Level 1"
+          git push
