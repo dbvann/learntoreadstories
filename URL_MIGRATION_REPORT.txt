@@ -1,0 +1,6 @@
+LearnToReadStories URL migration
+
+Level 1: first-words/index.html + 26 lesson files
+Level 2: short-vowel-stories/index.html + 26 lesson files
+Level 3: blends-and-digraphs/index.html + 40 lesson files
+Level 4: long-vowels-and-sneaky-letters/index.html + 44 lesson files
