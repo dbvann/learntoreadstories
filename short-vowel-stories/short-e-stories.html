@@ -14,19 +14,20 @@
     .article-hero h1 { font-size: clamp(2.5rem, 5vw, 4.25rem); margin-bottom: 1rem; letter-spacing: -.04em; }
     .article-hero p { color: rgba(44,62,80,.72); font-size: 1.15rem; max-width: 760px; }
     .short-e-content { padding: 3rem 0 4rem; }
-    .short-e-section { max-width: 920px; margin: 0 auto 2.75rem; }
+    .short-e-section { max-width: 920px; margin: 0 auto 2rem; padding: 0; }
     .short-e-section h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: .85rem; }
     .short-e-section p { color: rgba(44,62,80,.78); margin-bottom: 1rem; }
     .word-family-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.35rem; }
     .word-family-card { background: rgba(253,248,242,.96); border: 1px solid rgba(184,217,232,.55); border-radius: 1.25rem; padding: 1.2rem; box-shadow: 0 8px 24px rgba(44,62,80,.06); }
-    .word-family-card strong { display: block; color: var(--color-orange); font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: .35rem; }
-    .story-heading { max-width: 920px; margin: 0 auto 1.25rem; }
+    .word-family-card > strong { display: block; color: var(--color-orange); font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: .35rem; }
+    .story-heading { max-width: 920px; margin: 0 auto 1.25rem; padding: 0; }
     .story-heading h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: .7rem; }
     .story-heading p { color: rgba(44,62,80,.78); }
     .practice-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.35rem; }
     .practice-step { background: #fff; border: 1px solid rgba(232,98,42,.18); border-radius: 1.2rem; padding: 1.1rem; }
-    .practice-step span { display: block; font-size: 1.65rem; margin-bottom: .4rem; }
-    .practice-step strong { display: block; font-family: var(--font-heading); margin-bottom: .35rem; }
+    .practice-step > span { display: block; font-size: 1.65rem; margin-bottom: .4rem; }
+    .practice-step > strong { display: block; font-family: var(--font-heading); margin-bottom: .35rem; }
+    .practice-step p strong { display: inline; font-family: inherit; margin: 0; }
     @media (max-width: 800px) {
       .word-family-grid, .practice-steps { grid-template-columns: repeat(2, 1fr); }
     }
