@@ -89,9 +89,9 @@ jobs:
           <a class="btn btn-primary" href="reading-path.html">Browse the Reading Path →</a>
           <a class="btn btn-secondary" href="parent-guide.html">Back to Parent Guide</a>
           </div>'''
-          new_next = '''<div class="article-callout"><strong>Practice in a real lesson:</strong> Your child does not need to memorize every sound before beginning. Start with one Level 1 lesson and practice one sound at a time.</div>
+          new_next = '''<div class="article-callout"><strong>Practice in a real lesson:</strong> Your child does not need to memorize every sound before beginning. Start with one Level 1 letter-sounds lesson and practice one sound at a time.</div>
           <div class="article-next">
-          <a class="btn btn-primary" href="level-1.html">Start Level 1 →</a>
+          <a class="btn btn-primary" href="letter-sounds/index.html">Start Level 1 Letter Sounds →</a>
           <a class="btn btn-secondary" href="reading-path.html">View the Full Reading Path</a>
           <a class="btn btn-secondary" href="how-children-learn-to-read.html">How Children Learn to Read</a>
           <a class="btn btn-secondary" href="parent-guide.html">Back to Parent Guide</a>
@@ -105,7 +105,7 @@ jobs:
           # 4. Reading Path: links back to both parent articles.
           path = root / 'reading-path.html'
           text = path.read_text(encoding='utf-8')
-          paragraph = '<p>Each level builds on the one before it. Start with First Words, then move forward when the stories feel easy.</p>'
+          paragraph = '<p>Each level builds on the one before it. Start with Letter Sounds, then move forward when the stories feel easy.</p>'
           added = paragraph + '\n<p>Curious about why the levels are arranged this way? Read <a href="how-children-learn-to-read.html">how children learn to read</a>.</p>'
           if 'Curious about why the levels are arranged this way?' not in text:
               if paragraph not in text:
@@ -125,20 +125,20 @@ jobs:
               'how-children-learn-to-read.html',
               'what-are-letter-sounds.html',
               'reading-path.html',
-              'level-1.html',
+              'letter-sounds/index.html',
           }
           missing = [name for name in required if not (root / name).is_file()]
           if missing:
               raise RuntimeError(f'Missing linked files: {missing}')
 
-          # 6. Regenerate sitemap from every public HTML/HTM file.
+          # 6. Regenerate sitemap from public HTML/HTM files, excluding legacy redirect stubs.
           excluded = {'404.html'}
           pages = []
           for file in root.rglob('*'):
               if not file.is_file() or file.suffix.lower() not in {'.html', '.htm'}:
                   continue
               rel = file.as_posix().lstrip('./')
-              if rel.startswith('.git/') or rel.startswith('.github/') or Path(rel).name in excluded:
+              if rel.startswith('.git/') or rel.startswith('.github/') or rel.startswith('first-words/') or Path(rel).name in excluded:
                   continue
               pages.append(rel)
 
