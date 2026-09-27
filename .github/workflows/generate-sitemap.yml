@@ -28,7 +28,7 @@ jobs:
 
           base_url = "https://learntoreadstories.com/"
           excluded_names = {"404.html"}
-          excluded_parts = {".git", ".github", "node_modules"}
+          excluded_parts = {".git", ".github", "node_modules", "first-words"}
 
           pages = []
           for path in Path(".").rglob("*"):
