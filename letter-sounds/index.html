@@ -49,6 +49,20 @@
 <main class="container">
 <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="../reading-path.html">Reading Path</a> › Level 1: Letter Sounds</div>
 <section class="letter-sounds-hero"><h1>Letter Sounds for Beginning Readers</h1><div class="letter-sounds-intro"><p>Learning letter sounds is one of the first steps toward reading. Children begin by connecting a printed letter with the sound it can make, then use those sounds to start blending simple words.</p><p>In each Beach Cat lesson, your child practices one sound, reads a few beginner-friendly words, and finishes with a tiny story so the sound appears in real reading.</p><p class="next-step">Start with any letter below, or follow the recommended learning path. When your child is comfortable identifying sounds and blending simple words, continue to <a href="../short-vowel-stories/index.html">Short Vowel Stories →</a></p></div></section>
+<section class="parent-tip" aria-labelledby="letter-chart-title" id="letter-sounds-chart-download" hidden>
+<h2 id="letter-chart-title">Free Printable A–Z Letter Sounds Practice Chart</h2>
+<p>Practice all 26 letters with friendly pictures, matching words, and checkboxes to celebrate progress. Print this one-page chart and use it alongside the free letter sound lessons below.</p>
+<p><a class="btn btn-primary" href="../downloads/LearnToReadStories_Letter_Sounds_Practice_Chart.pdf" download="LearnToReadStories-Letter-Sounds-Practice-Chart.pdf">Download the Free Letter Sounds Chart (PDF) ↓</a></p>
+</section>
+<script>
+(function(){
+  var section = document.getElementById('letter-sounds-chart-download');
+  var url = '../downloads/LearnToReadStories_Letter_Sounds_Practice_Chart.pdf';
+  fetch(url, {method:'HEAD'}).then(function(response){
+    if (response.ok && /application\/pdf/i.test(response.headers.get('content-type') || '')) section.hidden = false;
+  }).catch(function(){});
+})();
+</script>
 <div class="parent-tip"><strong>New to letter sounds?</strong> Read <a href="../parent-guide/letter-sounds-vs-letter-names.html">Letter Sounds vs. Letter Names</a> to see how both skills work together, then choose one lesson below.</div>
 <div class="recommended-pill">⭐ Recommended Learning Path: A → S → T → M → C → P → B → R</div>
 <div class="lesson-grid">
